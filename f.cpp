@@ -1,18 +1,22 @@
 #include<iostream>
 using namespace std;
 
-int factorial(int n){
-   if(n==1)
-      return 1;
-   int ans = n*factorial(n-1);
-   return ans;   
+void printSubsequences(string str, string output, int i){
+   //base case
+   if(i>=str.length()){
+      cout<<output<<endl;
+      return ;
+   }
+   printSubsequences(str, output, i+1);
+
+   output.push_back(str[i]);
+   printSubsequences(str,output,i+1);
 }
 
 int main(){
-   int n;
-   cout<<"enter the value of n"<<endl;
-   cin>>n;
-
-   int ans = factorial(n);
-   cout<<"Ans is "<<ans<<endl;
+   string str = "abc";
+   string output="";
+   int i = 0;
+   printSubsequences(str, output,i);
+   return 0;
 }
