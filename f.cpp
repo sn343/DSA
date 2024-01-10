@@ -7,8 +7,10 @@ void printSubsequences(string str, string output, int i){
       cout<<output<<endl;
       return ;
    }
+   //exclude
    printSubsequences(str, output, i+1);
 
+   //include
    output.push_back(str[i]);
    printSubsequences(str,output,i+1);
 }
