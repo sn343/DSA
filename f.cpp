@@ -1,24 +1,28 @@
-#include<iostream>
+#include <iostream>
+#include<vector>
+#include<limits.h>
 using namespace std;
 
-void printSubsequences(string str, string output, int i){
-   //base case
-   if(i>=str.length()){
-      cout<<output<<endl;
-      return ;
-   }
-   //exclude
-   printSubsequences(str, output, i+1);
-
-   //include
-   output.push_back(str[i]);
-   printSubsequences(str,output,i+1);
+int solve(vector<int>& arr,int target){
+  if (target == 0){
+    return 0;
+  }
+  if(target<0){
+    return INT_MAX;
+  }
+  int mini = INT_MAX;
+  for(int i =0; i<arr.size(); i++){
+    int ans = solve(arr ,target-arr[i]);
+    if(ans != INT_MAX)
+    mini = min(mini,ans + 1);
+  }
+  return mini;
 }
 
-int main(){
-   string str = "abc";
-   string output="";
-   int i = 0;
-   printSubsequences(str, output,i);
-   return 0;
+int main() {
+  vector<int> arr{1,2};
+  int target = 5;
+  int ans = solve(arr,target);
+  cout<<ans<<endl;
+  return 0;
 }
