@@ -23,6 +23,6 @@ int main() {
   vector<int> arr{1,2};
   int target = 5;
   int ans = solve(arr,target);
-  cout<<ans<<endl;
+  cout<<"ans is "<<ans<<endl;
   return 0;
 }
