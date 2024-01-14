@@ -1,68 +1,34 @@
+// Binary Search in C++
+
 #include <iostream>
 using namespace std;
 
-void merge(int *arr, int s, int e){
-int mid = (s+e)/2;
+int binarySearch(int array[], int x, int low, int high) {
+  
+	// Repeat until the pointers low and high meet each other
+  while (low <= high) {
+    int mid = low + (high - low) / 2;
 
-int len1 = mid-s+1;
-int len2 =e-mid;
+    if (array[mid] == x)
+      return mid;
 
-int* left = new int[len1];
-int* right = new int[len2];
+    if (array[mid] < x)
+      low = mid + 1;
 
-int k = s;
-for(int i = 0; i<len1; i++){
-  left[i]=arr[k];
-  k++;
-}
-k = mid+1;
-for(int i = 0; i<len2; i++){
-  right[i]=arr[k];
-  k++;
-}
-
-int leftIndex = 0;
-int rightIndex = 0;
-int mainArrayIndex = s;
-
-while(leftIndex<len1 && rightIndex<len2){
-  if(left[leftIndex]<right[rightIndex]){
-    arr[mainArrayIndex++] = left[leftIndex++];
+    else
+      high = mid - 1;
   }
-  else{
-    arr[mainArrayIndex++] = right[rightIndex++];
-  }
-}
-while(leftIndex<len1){
-  arr[mainArrayIndex++]=left[leftIndex++];
-}
-while(rightIndex<len2){
-  arr[mainArrayIndex++]=right[rightIndex++];
-}
+
+  return -1;
 }
 
-void mergeSort(int arr[],int e, int s){
-  if(s>=e)
-  return;
-
-  int mid = (s+e)/2;
-  mergeSort(arr,s,mid);
-
-  mergeSort(arr,e,mid+1);
-
-  merge(arr,s,e);
-}
-
-int main() {
-  int arr [] = {4,13,5,13,2,12,2,2,2,2,2,2};
-  int n = 12;
-  int s = 0;
-  int e = n-1;
-
-  mergeSort(arr ,e, s);
-  for(int i =0; i<n; i++){
-    cout<<arr[i]<<" ";
-  }
-  cout<<endl;
-  return 0;
+int main(void) {
+  int array[] = {3, 4, 5, 6, 7, 8, 9};
+  int x = 4;
+  int n = sizeof(array) / sizeof(array[0]);
+  int result = binarySearch(array, x, 0, n - 1);
+  if (result == -1)
+    printf("Not found");
+  else
+    printf("Element is found at index %d", result);
 }
