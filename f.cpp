@@ -30,5 +30,5 @@ int main(void) {
   if (result == -1)
     printf("Not found");
   else
-    printf("Element is found at index %d", result);
+    printf("Element is found at index = %d", result);
 }
