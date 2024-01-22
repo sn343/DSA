@@ -18,7 +18,7 @@ int binarySearch(int array[], int x, int low, int high) {
     else
       high = mid - 1;
   }
-    
+     
   return -1;
 }
 // main function
