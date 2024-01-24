@@ -10,13 +10,14 @@ int binarySearch(int array[], int x, int low, int high) {
     int mid = low + (high - low) / 2;
 
     if (array[mid] == x)
-      return mid;
+      return mid; 
 
     if (array[mid] < x)
       low = mid + 1;
 
     else
       high = mid - 1;
+      cout<<endl;
   }
       
   return -1;
@@ -32,3 +33,4 @@ int main(void) {
   else
     printf("Element is found at index = %d", result);
 }
+cout<<endl;
