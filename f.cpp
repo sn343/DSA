@@ -20,7 +20,7 @@ int binarySearch(int array[], int x, int low, int high) {
       
   } 
        
-  return -1; 
+  return -1;  
 }
 // main function
 int main(void) {
