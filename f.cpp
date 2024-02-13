@@ -22,7 +22,7 @@ int binarySearch(int array[], int x, int low, int high) {
        
   return -1;  
 }
-// main function
+// main function 
 int main(void) {
   int array[] = {3, 4, 5, 6, 7, 8, 9};  
   int x = 4;
